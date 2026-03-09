@@ -13,16 +13,16 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Your awesome title
-email: your-email@example.com
+title: whatdidgiudo
+email: giujutsus@proton.me
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: whatdidgiudo
+github_username:  g3dms
 
 # Build settings
 markdown: kramdown
@@ -41,3 +41,59 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+include:
+  - assets/css
+
+# Site settings
+title: lee does stuff
+email: giujutsus@proton.me
+author: lee
+description: >- 
+  rentry layouts, neocities shrines, watermarks, posters, edits.
+  digital stuff with personality.
+url: "https://whatdidgiudo.neocities.org" 
+baseurl: "" 
+
+# Branding
+logo_text: WHATDIDGIUDO
+nav_separator: "✦"
+max_width: "1300px"
+font_family: "'Helvetica Neue', 'Arial', -apple-system, BlinkMacSystemFont, sans-serif"
+
+# Colors
+colors:
+  background: "#0a0a0a"
+  text: "#ffffff"
+  accent: "#ff66b2"
+  muted: "#888888"
+
+navigation:
+  - name: PORTFOLIO
+    link: /portfolio/
+  - name: RESOURCES
+    link: /resources/
+  - name: CONTACT
+    link: /contact/
+
+social:
+  - name: TWITTER
+    url: https://twitter.com/whatdidgiudo
+  - name: TUMBLR
+    url: https://tumblr.com/yourblog
+  - name: EMAIL
+    url: mailto:your@email.com
+
+favicon: /assets/images/favicon.ico
+url_text: "whatdidgiudo.neocities.org"
+
+markdown: kramdown
+permalink: pretty
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      description: "digital stuff by lee"
