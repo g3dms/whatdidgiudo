@@ -1,6 +1,6 @@
 ---
 layout: default
-title: work
+title: freebies for you, made by me!
 ---
 
 <p>stuff</p>

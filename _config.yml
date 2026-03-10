@@ -71,8 +71,12 @@ colors:
 navigation:
   - name: PORTFOLIO
     link: /portfolio/
-  - name: RESOURCES
-    link: /resources/
+  - name: FREEBIES
+    link: /freebies/
+  - name: ABOUT
+    link: /aboutme/
+  - name: BLOG
+    link: /blog/
   - name: CONTACT
     link: /contact/
 

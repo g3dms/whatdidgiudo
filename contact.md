@@ -1,6 +1,6 @@
 ---
 layout: default
-title: contact
+title: contact me!
 ---
 
 <p>email, socials, carrier pigeon</p>

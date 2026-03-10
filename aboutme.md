@@ -1,6 +1,6 @@
 ---
 layout: default
-title: work
+title: about me <3
 ---
 
 <p>hola</p>

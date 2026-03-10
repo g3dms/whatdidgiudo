@@ -1,0 +1,78 @@
+---
+layout: default
+title: blog
+---
+
+<section class="blog-index">
+    <div class="section-header">
+        <span class="section-eyebrow">WHAT DID GIU(JUTSUS) WRITE?</span>
+        <h1 class="section-title">BLOG / TUTORIALS</h1>
+        <p class="blog-description">tutorials, resources, and other things i found cool</p>
+    </div>
+
+    <!-- Tag filter UI -->
+    <div class="tag-filter">
+        <span class="tag-filter-label">filter by tag:</span>
+        <span class="tag-all active" onclick="filterPosts('all')">all</span>
+        {% assign all_tags = "" %}
+        {% for post in site.posts %}
+            {% for tag in post.tags %}
+                {% assign tag_lower = tag | downcase %}
+                {% unless all_tags contains tag_lower %}
+                    <span class="tag-filter-item" data-tag="{{ tag | downcase }}" onclick="filterPosts('{{ tag | downcase }}')">{{ tag }}</span>
+                    {% assign all_tags = all_tags | append: tag_lower | append: " " %}
+                {% endunless %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    <!-- Blog posts list -->
+    <div class="post-list">
+        {% for post in site.posts %}
+        <article class="post-card" data-tags="{% for tag in post.tags %}{{ tag | downcase }} {% endfor %}">
+            <div class="post-meta">
+                <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %d, %Y" }}</time>
+                <span class="post-tags">
+                    {% for tag in post.tags %}
+                    <span class="post-tag">{{ tag }}</span>
+                    {% endfor %}
+                </span>
+            </div>
+            <h2 class="post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h2>
+            {% if post.excerpt %}
+            <div class="post-excerpt">
+                {{ post.excerpt | strip_html | truncatewords: 30 }}
+            </div>
+            {% endif %}
+            <a href="{{ post.url | relative_url }}" class="post-read-more">read more →</a>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Simple JavaScript for tag filtering -->
+<script>
+function filterPosts(tag) {
+    // Update active tag styling
+    document.querySelectorAll('.tag-filter-item, .tag-all').forEach(el => {
+        el.classList.remove('active');
+    });
+    if (tag === 'all') {
+        document.querySelector('.tag-all').classList.add('active');
+    } else {
+        document.querySelector(`[data-tag="${tag}"]`).classList.add('active');
+    }
+    
+    // Filter posts
+    document.querySelectorAll('.post-card').forEach(post => {
+        if (tag === 'all') {
+            post.style.display = 'block';
+        } else {
+            const postTags = post.dataset.tags || '';
+            post.style.display = postTags.includes(tag) ? 'block' : 'none';
+        }
+    });
+}
+</script>
