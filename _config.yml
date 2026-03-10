@@ -46,7 +46,7 @@ include:
   - assets/css
 
 # Site settings
-title: lee does stuff
+title: whatdidgiudo
 email: giujutsus@proton.me
 author: lee
 description: >- 
@@ -57,7 +57,7 @@ baseurl: ""
 
 # Branding
 logo_text: WHATDIDGIUDO
-nav_separator: "✦"
+nav_separator: "𖹭"
 max_width: "1300px"
 font_family: "'Helvetica Neue', 'Arial', -apple-system, BlinkMacSystemFont, sans-serif"
 

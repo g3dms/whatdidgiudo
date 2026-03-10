@@ -2,7 +2,7 @@
 layout: post
 title: "How to deploy Github into Neocities (+ with Jekyll)"
 date: 2026-03-09
-tags: [guide, github, jekyll]
+tags: [guide, github, jekyll, neocities]
 category: guide
 ---
 

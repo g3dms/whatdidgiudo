@@ -2,7 +2,7 @@
 layout: post
 title: "Why you should be using static site generators with your Neocities"
 date: 2026-03-09
-tags: [tutorial, jekyll]
+tags: [tutorial, jekyll, neocities]
 category: tutorial
 ---
 Hi everypony! I'd like to promote some propaganda towards static site generators. Some common ones also include: Eleventy, Hugo, and Astro. I personally use Jekyll, which will be what I will be referencing throughout.
@@ -30,6 +30,7 @@ Well, that's where layouts come into play. Adding a `_layouts` folder into your 
 </html>
 {% endraw %}
 ```
+...with this, all you have to do is type out your main content, no extra HTML needed! Pretty cool, huh?
 
 ---
 
