@@ -8,6 +8,8 @@ title: blog
         <span class="section-eyebrow">WHAT DID GIU(JUTSUS) WRITE?</span>
         <h1 class="section-title">BLOG / TUTORIALS</h1>
         <p class="blog-description">tutorials, resources, and other things i found cool</p>
+        <p class="blog-description">coming up next: simple guide to rentry, less simple guide to rentry (metadata),
+            guestbooks, goals</p>
     </div>
 
     <!-- Tag filter UI -->
@@ -16,13 +18,14 @@ title: blog
         <span class="tag-all active" onclick="filterPosts('all')">all</span>
         {% assign all_tags = "" %}
         {% for post in site.posts %}
-            {% for tag in post.tags %}
-                {% assign tag_lower = tag | downcase %}
-                {% unless all_tags contains tag_lower %}
-                    <span class="tag-filter-item" data-tag="{{ tag | downcase }}" onclick="filterPosts('{{ tag | downcase }}')">{{ tag }}</span>
-                    {% assign all_tags = all_tags | append: tag_lower | append: " " %}
-                {% endunless %}
-            {% endfor %}
+        {% for tag in post.tags %}
+        {% assign tag_lower = tag | downcase %}
+        {% unless all_tags contains tag_lower %}
+        <span class="tag-filter-item" data-tag="{{ tag | downcase }}" onclick="filterPosts('{{ tag | downcase }}')">{{
+            tag }}</span>
+        {% assign all_tags = all_tags | append: tag_lower | append: " " %}
+        {% endunless %}
+        {% endfor %}
         {% endfor %}
     </div>
 
@@ -54,25 +57,25 @@ title: blog
 
 <!-- Simple JavaScript for tag filtering -->
 <script>
-function filterPosts(tag) {
-    // Update active tag styling
-    document.querySelectorAll('.tag-filter-item, .tag-all').forEach(el => {
-        el.classList.remove('active');
-    });
-    if (tag === 'all') {
-        document.querySelector('.tag-all').classList.add('active');
-    } else {
-        document.querySelector(`[data-tag="${tag}"]`).classList.add('active');
-    }
-    
-    // Filter posts
-    document.querySelectorAll('.post-card').forEach(post => {
+    function filterPosts(tag) {
+        // Update active tag styling
+        document.querySelectorAll('.tag-filter-item, .tag-all').forEach(el => {
+            el.classList.remove('active');
+        });
         if (tag === 'all') {
-            post.style.display = 'block';
+            document.querySelector('.tag-all').classList.add('active');
         } else {
-            const postTags = post.dataset.tags || '';
-            post.style.display = postTags.includes(tag) ? 'block' : 'none';
+            document.querySelector(`[data-tag="${tag}"]`).classList.add('active');
         }
-    });
-}
+
+        // Filter posts
+        document.querySelectorAll('.post-card').forEach(post => {
+            if (tag === 'all') {
+                post.style.display = 'block';
+            } else {
+                const postTags = post.dataset.tags || '';
+                post.style.display = postTags.includes(tag) ? 'block' : 'none';
+            }
+        });
+    }
 </script>
